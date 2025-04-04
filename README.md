@@ -42,7 +42,7 @@ sudo nmcli connection up usb0
 
 Make it executable:
 
-```
+```bash
 sudo chmod +x /usr/local/bin/usb0-setup.sh
 ```
 
@@ -50,12 +50,12 @@ sudo chmod +x /usr/local/bin/usb0-setup.sh
 
 ## ⚙️ Step 2: Create a systemd service
 type this in the shell.
-```
+```bash
 sudo nano /etc/systemd/system/usb0-setup.service
 ```
 
 Paste the following:
-```
+```ini
 [Unit]
 Description=Configure USB0 Network on Boot
 After=network.target
@@ -71,7 +71,7 @@ WantedBy=multi-user.target
 ---
 
 ## 🚀 Step 3: Enable and start the service
-```
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable usb0-setup.service
 sudo systemctl start usb0-setup.service
@@ -79,17 +79,17 @@ sudo systemctl start usb0-setup.service
 
 ## 🔄 Step 4: Reboot and test
 Now reboot your Pi:
-```
+```bash
 sudo reboot
 ```
 
 After reboot, check the connection using:
-```
+```bash
 nmcli device
 ```
 
 You should see something like:
-```
+```bash
 DEVICE  TYPE      STATE      CONNECTION
 usb0    ethernet  connected  usb0
 ```
