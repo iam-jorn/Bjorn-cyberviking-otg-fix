@@ -16,12 +16,12 @@ This guide explains how to configure USB networking (`usb0`) on a Raspberry Pi Z
 ## 📦 Step 1: Create the startup script
 
 type this in the shell.
-```
+```bash
 sudo nano /usr/local/bin/usb0-setup.sh
 ```
 Paste the following:
 
-```
+```bash
 #!/bin/bash
 
 # Add usb0 connection if it doesn't already exist
