@@ -67,3 +67,36 @@ RemainAfterExit=true
 [Install]
 WantedBy=multi-user.target
 ```
+---
+
+## 🚀 Step 3: Enable and start the service
+```
+sudo systemctl daemon-reload
+sudo systemctl enable usb0-setup.service
+sudo systemctl start usb0-setup.service
+```
+
+## 🔄 Step 4: Reboot and test
+Now reboot your Pi:
+```
+sudo reboot
+```
+
+After reboot, check the connection using:
+```
+nmcli device
+```
+
+You should see something like:
+```
+DEVICE  TYPE      STATE      CONNECTION
+usb0    ethernet  connected  usb0
+```
+
+
+
+
+
+
+
+
