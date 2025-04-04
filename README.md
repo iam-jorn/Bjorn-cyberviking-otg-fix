@@ -98,7 +98,7 @@ You should see something like:
 DEVICE  TYPE      STATE      CONNECTION
 usb0    ethernet  connected  usb0
 ```
-
+If it, for some reason decides to disconnect, just try the ssh or webui again and it'll work.
 
 
 
