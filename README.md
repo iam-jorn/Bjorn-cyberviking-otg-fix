@@ -18,3 +18,29 @@ This guide explains how to configure USB networking (`usb0`) on a Raspberry Pi Z
 ```
 sudo nano /usr/local/bin/usb0-setup.sh
 ```
+Paste the following:
+
+```
+#!/bin/bash
+
+# Add usb0 connection if it doesn't already exist
+nmcli connection show usb0 >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    nmcli connection add type ethernet ifname usb0 con-name usb0 ipv4.addresses 172.20.2.1/24 ipv4.method manual
+fi
+
+# Ensure NetworkManager handles usb0
+sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
+
+# Restart NetworkManager
+sudo systemctl restart NetworkManager
+
+# Bring up the usb0 connection
+sudo nmcli connection up usb0
+```
+
+Make it executable:
+
+```
+sudo chmod +x /usr/local/bin/usb0-setup.sh
+```
