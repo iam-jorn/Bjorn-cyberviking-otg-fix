@@ -5,7 +5,7 @@ This guide explains how to configure USB networking (`usb0`) on a Raspberry Pi Z
 ---
 
 ## I had the problem where the otg would stop working if I switched wifi connections. 
-This as I said let's you stay connected to Bjorn if you use http://bjorn.local:8000/ or if you ssh into bjorn with ssh bjorn@bjorn.local
+##This as I said let's you stay connected to Bjorn if you use http://bjorn.local:8000/ or if you ssh into bjorn with ssh bjorn@bjorn.local
 ---
 
 ## 🧰 What this setup does
