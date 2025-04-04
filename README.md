@@ -44,3 +44,26 @@ Make it executable:
 ```
 sudo chmod +x /usr/local/bin/usb0-setup.sh
 ```
+
+---
+
+## ⚙️ Step 2: Create a systemd service
+
+```
+sudo nano /etc/systemd/system/usb0-setup.service
+```
+
+Paste the following:
+```
+[Unit]
+Description=Configure USB0 Network on Boot
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/usb0-setup.sh
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
+```
