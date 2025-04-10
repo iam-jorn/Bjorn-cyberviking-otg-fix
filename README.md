@@ -33,7 +33,7 @@ nmcli connection show usb0 >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     nmcli connection add type ethernet ifname usb0 con-name usb0 ipv4.addresses 172.20.2.1/24 ipv4.method manual
 fi
-
+```
 # Ensure NetworkManager handles usb0
 sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
 
@@ -42,7 +42,7 @@ sudo systemctl restart NetworkManager
 
 # Bring up the usb0 connection
 sudo nmcli connection up usb0
-```
+
 
 Make it executable:
 
