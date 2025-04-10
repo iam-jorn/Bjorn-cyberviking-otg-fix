@@ -35,13 +35,19 @@ if [ $? -ne 0 ]; then
 fi
 ```
 # Ensure NetworkManager handles usb0
+```bash
 sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
+```
 
 # Restart NetworkManager
+```bash
 sudo systemctl restart NetworkManager
+```
 
 # Bring up the usb0 connection
+```
 sudo nmcli connection up usb0
+```
 
 
 Make it executable:
